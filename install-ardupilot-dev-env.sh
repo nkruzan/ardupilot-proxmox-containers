@@ -58,9 +58,6 @@ git submodule update --init --recursive
 Tools/environment_install/install-prereqs-ubuntu.sh -y
 EOF
 
-
-fi
-
 while true; do
 	read -r -p "Set Up ESP32? (Y/N): " answer
 	case $answer in
@@ -86,9 +83,6 @@ EOF
 		* ) echo "Please answer Y or N.";;
 	esac
 done
-
-
-
 
 while true; do
     read -r -p "Install Custom Build Server? (Y/N): " answer
@@ -165,7 +159,7 @@ EOF
 done
 
 while true; do
-    read -r -p "Do you wish to reboot the system? Required for Custom Build to run(Y/N): " answer
+    read -r -p "Reboot the system? Required for Custom Build to run(Y/N): " answer
     case $answer in
         [Yy]* ) reboot; break;;
         [Nn]* ) exit;;
@@ -173,3 +167,4 @@ while true; do
     esac
 done
 
+fi
