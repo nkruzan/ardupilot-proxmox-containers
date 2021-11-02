@@ -72,7 +72,6 @@ echo "$password" | sudo -S -i -u "$username" bash << EOF
 sudo apt-get install git wget flex bison gperf python-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util -y
 sudo apt-get install python3 python3-pip python3-setuptools -y
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-python -m pip install empy pexpect
 cd /home/$username/base/ardupilot
 Tools/scripts/esp32_get_idf.sh
 cd modules/esp_idf
