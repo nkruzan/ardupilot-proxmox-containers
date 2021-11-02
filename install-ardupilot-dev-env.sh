@@ -93,6 +93,16 @@ while true; do
 				[Yy]* ) REPO=ArduPilot
 						break;;
 				[Nn]* ) read -p "Enter github username : " REPO
+					while true; do
+							read -r -p "Use branch master? (Y/N): " answer
+							case $answer in
+								[Yy]* ) BRANCH=master
+										break;;
+								[Nn]* ) read -p "Enter branch name : " BRANCH
+										break;;
+								* ) echo "Please answer Y or N.";;
+							esac
+						done
 						break;;
 				* ) echo "Please answer Y or N.";;
 			esac
@@ -115,7 +125,7 @@ sudo touch /etc/apache2/envvars
 cd /home/$username/
 
 #clone the repo
-git clone https://github.com/$REPO/CustomBuild.git
+git clone -b $BRANCH https://github.com/$REPO/CustomBuild.git
 
 #populate new envvars file from backup with apache username changed
 sudo sed 's/www-data/$username/' /etc/apache2/envvars.backup | sudo tee -a /etc/apache2/envvars
