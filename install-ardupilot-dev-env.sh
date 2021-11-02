@@ -70,8 +70,8 @@ export HISTIGNORE='*sudo -S*'
 
 #user was successfully added continue here as new user
 echo "$password" | sudo -S -i -u "$username" bash << EOF
-sudo apt-get install git wget flex bison gperf python-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util
-sudo apt-get install python3 python3-pip python3-setuptools
+sudo apt-get install git wget flex bison gperf python-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util -y
+sudo apt-get install python3 python3-pip python3-setuptools -y
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 sudo pip3 install pexpect empy
 cd ardupilot
