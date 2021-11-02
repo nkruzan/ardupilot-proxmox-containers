@@ -67,7 +67,9 @@ while true; do
 		[Yy]* ) 
 #we dont want the password to be in the logs...
 export HISTIGNORE='*sudo -S*'
-
+cp build-esp32.sh /home/$username/build-esp32.sh
+chown $username:$username /home/$username/build-esp32.sh
+chmod +x /home/$username/build-esp32.sh
 #user was successfully added continue here as new user
 echo "$password" | sudo -S -i -u "$username" bash << EOF
 sudo apt-get install git wget flex bison gperf python-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util -y
